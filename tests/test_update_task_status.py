@@ -42,9 +42,10 @@ def test_update_task_status(loaded_page) -> None:
     task_container = loaded_page.locator("div").filter(has_text="Sell cat")
     checkbox = task_container.locator("div[class*='svgBox']")
     expect(checkbox).to_be_visible()
-    checkbox.click()
+    
 
     # Step 3: Verify the task is marked as checked and has line-through
+    checkbox.click()
     step("Verify the task is marked as completed")
     path = checkbox.locator("svg > path")
     opacity = path.get_attribute("opacity")
